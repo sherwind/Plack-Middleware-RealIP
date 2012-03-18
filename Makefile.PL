@@ -13,8 +13,9 @@ WriteMakefile(
       : ()),
     PL_FILES            => {},
     PREREQ_PM => {
-        'Test::More' => 0,
-        'Plack'      => 0,
+        'Test::More'    => 0,
+        'Plack'         => 0,
+        'Net::Netmask'  => 0,
     },
     META_MERGE => {
         resources => {
