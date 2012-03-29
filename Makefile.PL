@@ -17,6 +17,7 @@ WriteMakefile(
         'Plack'         => 0,
         'Net::Netmask'  => 0,
     },
+    MIN_PERL_VERSION    => '5.008',
     META_MERGE => {
         resources => {
             license     => 'http://dev.perl.org/licenses/',
