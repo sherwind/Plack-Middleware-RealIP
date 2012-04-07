@@ -27,8 +27,9 @@ sub call {
         $header = "HTTP_$header" unless $header =~ /^(?:HTTP|CONTENT|COOKIE)/;
     }
 
-    my @remote = $env->{$header} =~ /([^,\s]+)/g if exists $env->{$header};
-    my @trusted_proxy = @{ $self->trusted_proxy } if $self->trusted_proxy;
+    my (@remote, @trusted_proxy);
+    @remote = $env->{$header} =~ /([^,\s]+)/g if exists $env->{$header};
+    @trusted_proxy = @{ $self->trusted_proxy } if $self->trusted_proxy;
 
     if (@remote and @trusted_proxy) {
         my @unconfirmed = (@remote, $env->{REMOTE_ADDR});
