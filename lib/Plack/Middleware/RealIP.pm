@@ -2,7 +2,7 @@ package Plack::Middleware::RealIP;
 use strict;
 use warnings;
 use 5.008;
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 use parent qw/Plack::Middleware/;
 use Net::Netmask;
 
