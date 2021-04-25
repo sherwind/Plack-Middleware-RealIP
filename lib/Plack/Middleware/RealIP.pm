@@ -2,7 +2,7 @@ package Plack::Middleware::RealIP;
 use strict;
 use warnings;
 use 5.008;
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 use parent qw/Plack::Middleware/;
 use Net::Netmask;
 
@@ -93,6 +93,10 @@ A list of IP addresses or subnet blocks which are trusted to provide IP header.
 Sherwin Daganato E<lt>sherwin@daganato.comE<gt>
 
 Most of the logic is based on L<Plack::Middleware::XForwardedFor> by Graham Barr
+
+=head1 CONTRIBUTORS
+
+jmaslak: Joelle Maslak <jmaslak@antelope.net>
 
 =head1 LICENSE
 
