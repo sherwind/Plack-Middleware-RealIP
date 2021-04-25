@@ -1,0 +1,23 @@
+name: macos
+
+# Triggers the workflow on push or pull request events
+# See: https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+on: [push, pull_request]
+
+jobs:
+  perl_tester:
+    runs-on: macOS-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Perl
+        run: brew install perl
+      - name: perl -V
+        run: perl -V
+      - name: uses install-with-cpm
+        uses: perl-actions/install-with-cpm@stable
+        with:
+          cpanfile: "cpanfile"
+          sudo: false
+      - run: perl Makefile.PL
+      - run: make test
