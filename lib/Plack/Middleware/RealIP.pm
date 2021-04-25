@@ -10,6 +10,7 @@ use Plack::Util::Accessor qw( header trusted_proxy );
 
 sub prepare_app {
     my $self = shift;
+    local $Net::Netmask::SHORTNET_DEFAULT = 1;
 
     if (my $trusted_proxy = $self->trusted_proxy) {
         my @trusted_proxy = map { Net::Netmask->new($_) } ref($trusted_proxy) ? @{ $trusted_proxy } : ($trusted_proxy);
